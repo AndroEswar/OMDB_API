@@ -23,10 +23,18 @@ class SearchBody extends Component {
                     <div>{this.props.data.actors}</div>
                   </div>
                   <div className="row release-details">
-                    <div className="col-xs-6"> <span className="details-label">Original Release</span>: <span className="meta-data">{this.props.data.released}</span></div>
-                    <div className="col-xs-6"> <span className="details-label">Running Time</span>: <span className="meta-data">{this.props.data.runtime}</span> </div>
-                    <div className="col-xs-6"> <span className="details-label">Box Office</span>: <span className="meta-data">{this.props.data.boxOffice}</span></div>
-                    <div className="col-xs-6"> <span className="details-label">Votes</span>: <span className="meta-data">{this.props.data.votes}</span></div>
+                    <div className="col-xs-12"> <span className="details-label">Original Release</span>: <span className="meta-data">{this.props.data.released}</span></div>
+
+                    <div className="col-xs-12"> <span className="details-label">Running Time</span>: <span className="meta-data">{this.props.data.runtime}</span> </div>
+
+                    <div className="col-xs-12"> <span className="details-label">Awards</span>: <span className="meta-data">{this.props.data.awards}</span></div>
+
+                    <div className="col-xs-12"> <span className="details-label">Votes</span>: <span className="meta-data">{this.props.data.votes}</span></div>
+                    
+                    <div className="col-xs-12"> <span className="details-label">Production</span>: <span className="meta-data">{this.props.data.production}</span></div>
+
+                    <div className="col-xs-12"> <span className="details-label">Website</span>: <a href={this.props.data.website}><span className="meta-data">{this.props.data.website}</span></a></div>
+                    
                   </div>
                 </div>
               </div>
@@ -49,7 +57,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchTitle: '',
-      defaultUrl: 'http://www.omdbapi.com/?t=arrival&apikey=cdd746ab',
+      defaultUrl: 'http://www.omdbapi.com/?t=titanic&apikey=cdd746ab',
     };
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -80,7 +88,10 @@ class App extends Component {
           rating: json.imdbRating,
           boxOffice: json.BoxOffice,
           votes: json.imdbVotes,
-          response: json.Response
+          response: json.Response,
+          website: json.Website,
+          production: json.Production,
+          awards: json.Awards
         });
         }
         else {
@@ -133,7 +144,7 @@ class App extends Component {
 	        <div className="App-header col-xs-12">
 	          <div className="row">
 	            <div className="col-xs-12 col-sm-6 col-lg-5">
-	              <h1><a href="http://www.omdbapi.com/" className="omdb-link" title="The Open Movie Database">OMDB</a></h1>
+	              <h1><a href="https://github.com/AndroEswar/OMDB_api" className="omdb-link">Search Movies</a></h1>
 	            </div>
 	            <div className="col-xs-12 col-sm-6 col-lg-7">
 	              
